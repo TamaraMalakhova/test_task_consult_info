@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./main.css">
+</head>
+
+<body>
+    <button id="btn_modal_window">Open Modal</button>
+
+    <script>
+
+        const createModalWindow = (content, params) => {
+            let divModalWindow = document.createElement('div');
+            divModalWindow.className = "modal";
+            divModalWindow.id = 'my_modal';
+            document.body.append(divModalWindow);
+
+            let divModalContent = document.createElement('div');
+            divModalContent.className = "modal_content";
+            divModalWindow.append(divModalContent);
+
+            let closeModalWindowBtn = document.createElement('span');
+            closeModalWindowBtn.innerText = '×';
+            closeModalWindowBtn.className = "close_modal_window";
+            divModalContent.append(closeModalWindowBtn);
+
+            let p = document.createElement('p');
+            p.innerHTML = content;
+            divModalContent.append(p);
+
+            let btn = document.getElementById("btn_modal_window");
+
+            btn.onclick = function () {
+                divModalWindow.style.display = "block";
+            }
+
+            closeModalWindowBtn.onclick = function () {
+                divModalWindow.style.display = "none";
+            }
+
+            window.onclick = function (event) {
+                if (event.target == divModalWindow) {
+                    divModalWindow.style.display = "none";
+                }
+            }
+        }
+
+        createModalWindow('Модальное окно тестового задания');
+    </script>
+</body>
+
+</html>

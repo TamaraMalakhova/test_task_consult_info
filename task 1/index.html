@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='css/bootstrap.min.css'>
+    <link rel='stylesheet' href='css/main.css'>
+    <title>task 1</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="btn-group" role="group">
+            <button id="btnGroupDrop" type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Select
+            </button>
+
+            <div class="dropdown-menu" aria-labelledby="btnGroupDrop" id='drop-items'>
+                <a onclick=""></a>
+                <script>
+                    let selectorObject = {
+                        items: [
+                            { id: 1, value: 'React Native' },
+                            { id: 2, value: 'React' },
+                            { id: 3, value: 'Vue' },
+                            { id: 4, value: 'Angular' },
+                            { id: 5, value: 'Node' }
+                        ],
+                        showSelect: (object) => {
+                            console.log(`selected {id: ${object.id}, value: ${object.value}}`);
+                        }
+                    };
+
+                    let dropItems = document.getElementById('drop-items');
+
+                    const selectorConstructor = (selector, params) => {
+                        for (let item of params.items) {
+                            let a = document.createElement('a');
+                            a.className = "dropdown-item";
+                            a.id = item.id;
+                            a.href = '#';
+                            a.onclick = () => params.showSelect(item);
+                            a.innerHTML = item.value;
+                            selector.append(a);
+                        }
+                    }
+                    
+                    selectorConstructor(dropItems, selectorObject);
+                </script>
+            </div>
+
+        </div>
+    </div>
+
+    <script src='js/jquery-3.5.1.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src='js/bootstrap.min.js'></script>
+</body>
+
+</html>

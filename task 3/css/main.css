@@ -1,0 +1,10 @@
+.navbar{
+    background-color: rgb(228, 213, 213)!important;
+    opacity: 0.9;
+    border: 1px solid black;
+}
+
+.tableOfUsers{
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
